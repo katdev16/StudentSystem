@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { Container, Paper } from '@mui/material';
+import { Container, Paper ,Button} from '@mui/material';
 import { Margin, Padding } from '@mui/icons-material';
 
 export default function Student() {
@@ -24,8 +24,12 @@ export default function Student() {
       <TextField id="outlined-basic" label="Address" variant="outlined" fullWidth
       value={address}
       onChange={(e)=>setAddress(e.target.value)}/>
+      <Button variant='contained'>Submit</Button>
     </Box>
+    {name}
+    {address}
     </Paper> 
     </Container>
+    
   );
 }
