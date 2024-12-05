@@ -5,6 +5,20 @@ import { Container, Paper ,Button} from '@mui/material';
 import { Margin, Padding } from '@mui/icons-material';
 
 export default function Student() {
+    const handleClick=(e)=>{
+        e.preventDefault()
+        const student={name,address}
+        console.log(student)
+        fetch("http://localhost:8080/student/add",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(student)
+    }).then(()=>{
+        console.log("New Student added")
+    })
+    }
+
+
     const PapperStyle = {padding:'50px 20px', width:600, margin:"20px auto"}
     const [name,setName] =React.useState('')
     const [address,setAddress]=React.useState('')
@@ -24,7 +38,7 @@ export default function Student() {
       <TextField id="outlined-basic" label="Address" variant="outlined" fullWidth
       value={address}
       onChange={(e)=>setAddress(e.target.value)}/>
-      <Button variant='contained'>Submit</Button>
+      <Button variant='contained' onClick={handleClick}>Submit</Button>
     </Box>
     {name}
     {address}
